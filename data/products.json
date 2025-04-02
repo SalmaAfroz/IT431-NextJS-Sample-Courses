@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Sempervivum Calcareum",
+    "price": 6.75,
+    "description": "A tough, beautiful rosette-shaped succulent with green leaves and reddish tips. Perfect for sunny spots and easy to care for.",
+    "stock": 15,
+    "image": "/Sempervivum Calcareum.png"
+  },
+  {
+    "id": 2,
+    "name": "Ice Plant",
+    "price": 7.75,
+    "description": "A playful succulent with chunky leaves. Easy to grow and perfect for bright, sunny spots.",
+    "stock": 12,
+    "image": "/Ice Plant Corpuscularia Lehmannii.png"
+  },
+  {
+    "id": 3,
+    "name": "Moonstones",
+    "price": 8.5,
+    "description": "A cute succulent with round, soft purple leaves. Soft to the touch and ideal for small indoor planters.",
+    "stock": 8,
+    "image": "/Moonstones Pachyphytum.png"
+  },
+  {
+    "id": 4,
+    "name": "String of Pearls",
+    "price": 7.5,
+    "description": "Trailing succulent with pearl-like leaves that hang like a necklace. Great for hanging baskets and unique displays.",
+    "stock": 11,
+    "image": "/String Of Pearls.png"
+  }
+]

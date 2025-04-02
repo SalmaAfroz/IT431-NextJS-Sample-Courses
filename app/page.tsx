@@ -1,65 +1,32 @@
-import { FC } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Header from "@/components/Header";
-import CourseCard from "@/components/CourseCard";
 
-interface Course {
-  id: number;
-  title: string;
-  description: string;
-  estimatedTime: string;
-}
-
-// This is a Server Component that fetches data
-async function getCourses(): Promise<Course[]> {
-  try {
-    // Use relative URL for API routes in the same Next.js app
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
-    const res = await fetch(`${baseUrl}/api/courses`, {
-      cache: "no-store", // Disable caching for this request
-    });
-    
-    if (!res.ok) {
-      console.error('API response error:', await res.text());
-      throw new Error(`Failed to fetch courses: ${res.status}`);
-    }
-    
-    return res.json();
-  } catch (error) {
-    console.error('Error fetching courses:', error);
-    return []; // Return empty array on error to prevent UI from breaking
-  }
-}
-
-const Home: FC = async () => {
-  const courses = await getCourses();
-  
+export default function Home() {
   return (
     <div>
       <Header />
-      <main className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-center">Available Courses</h1>
-          <Link href="/courses/add">
-            <Button className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800">
-              Add New Course
-            </Button>
-          </Link>
-        </div>
-        
-        {courses.length === 0 ? (
-          <p className="text-center text-gray-500">No courses available at the moment.</p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {courses.map((course) => (
-              <CourseCard key={course.id} course={course} />
-            ))}
+      <main className="container mx-auto px-4 py-16">
+        <div className="bg-green-50 border border-green-200 rounded-xl p-8 shadow-md text-center">
+          <h1 className="text-4xl font-bold mb-4 text-green-800">
+            Welcome to the Echeveria Store!
+          </h1>
+          <p className="text-lg text-green-700">
+          Our succulents are grown with the utmost care so that we can provide you with the most vibrant and healthy plants to liven up your space! Our products range from elegant Echeveria to colorful Crassula and anything your heart desires!
+          Worried about maintenance? Don't be!
+          These resilient, easy-to-care-for plants only require occasional watering, drainage, and a nice sunny spot.
+          </p>
+
+          <div className="mt-8 flex justify-center">
+            <Image
+              src="/homepage.png"
+              alt="Colorful succulent bowl"
+              width={500}
+              height={400}
+              className="rounded-lg shadow"
+            />
           </div>
-        )}
+        </div>
       </main>
     </div>
   );
-};
-
-export default Home;
+}
